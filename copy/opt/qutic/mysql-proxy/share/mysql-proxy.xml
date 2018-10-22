@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='export'>
+  <service name='database/mysql-proxy' type='service' version='0'>
+    <create_default_instance enabled='false'/>
+    <single_instance/>
+    <dependency name='fs' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/system/filesystem/local'/>
+    </dependency>
+    <dependency name='networking' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/milestone/network:default'/>
+    </dependency>
+    <exec_method name='start' type='method' exec='/opt/qutic/mysql-proxy/bin/mysql-proxy --defaults-file=/opt/qutic/mysql-proxy/etc/my.cnf' timeout_seconds='60'/>
+    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
+  </service>
+</service_bundle>

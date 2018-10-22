@@ -1,0 +1,4 @@
+[passenger*]
+env.PASSENGER_INSTANCE_REGISTRY_DIR /var/tmp
+env.PATH /usr/local/sbin:/usr/local/bin:/opt/local/sbin:/opt/local/bin:/usr/sbin:/usr/bin:/sbin
+user root
