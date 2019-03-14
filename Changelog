@@ -5,6 +5,7 @@
 * remove mysql-proxy
 * include proxysql
 * add fallback mysql-server
+* add tls to apache
 
 ## 20181018.1
 
