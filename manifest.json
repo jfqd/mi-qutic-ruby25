@@ -30,10 +30,13 @@
     "server_port":                     {"type": "text", "description": "vhost port"},
     "passenger_maxinstances":          {"type": "text", "description": "max passenger instances"},
     "passenger_workers":               {"type": "text", "description": "num of waiting passenger workers"},
-    "proxy_source":                    {"type": "text", "description": "ip or host of a mysql-server"},
+    "proxysql_admin_uid":              {"type": "text", "description": "proxysql admin user"},
+    "proxysql_admin_pwd":              {"type": "text", "description": "proxysql admin password"},
     "spiped_key":                      {"type": "text", "description": "key for spiped"},
     "spiped_redis_host":               {"type": "text", "description": "redis host for spiped"},
+    "spiped_redis_fallback_host":      {"type": "text", "description": "redis fallback host for spiped"},
     "spiped_percona_host":             {"type": "text", "description": "percona host for spiped"},
+    "spiped_percona_fallback_host":    {"type": "text", "description": "percona fallback host for spiped"},
     "spiped_memcached_master_host":    {"type": "text", "description": "memcached master host for spiped"},
     "spiped_memcached_fallback_host":  {"type": "text", "description": "memcached fallback host for spiped"}
   }

@@ -84,6 +84,10 @@ mkdir -p /var/log/httpd/old
 mkdir /opt/local/etc/httpd/tls
 chmod 0600 /opt/local/etc/httpd/tls
 
+echo "* Add db folder for proxysql";
+mkdir -p /opt/local/var/proxysql
+svccfg import /opt/local/lib/svc/manifest/proxysql.xml
+
 echo "export PASSENGER_INSTANCE_REGISTRY_DIR=/var/tmp" >> /root/.bashrc
 
 # ruby process watch

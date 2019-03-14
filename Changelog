@@ -1,5 +1,11 @@
 # Changelog
 
+## 20181018.2
+
+* remove mysql-proxy
+* include proxysql
+* add fallback mysql-server
+
 ## 20181018.1
 
 * Move to pkgsrc trunk

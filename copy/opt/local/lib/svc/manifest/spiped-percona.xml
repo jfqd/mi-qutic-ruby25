@@ -16,7 +16,7 @@
       <method_credential user="spiped" group="spiped"/>
     </method_context>
     
-    <exec_method type="method" name="start" exec="/opt/local/bin/spiped -F -e -s '[127.0.0.1]:3306' -t 127.0.0.1:23306 -k /etc/ssh/spiped.key" timeout_seconds="15"/>
+    <exec_method type="method" name="start" exec="/opt/local/bin/spiped -F -e -s '[127.0.0.1]:13306' -t 127.0.0.1:23306 -k /etc/ssh/spiped.key" timeout_seconds="15"/>
     <exec_method type="method" name="stop"  exec=":kill" timeout_seconds="60"/>
     
     <property_group name="application" type="application"></property_group>
