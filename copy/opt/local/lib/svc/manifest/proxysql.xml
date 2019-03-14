@@ -3,18 +3,14 @@
 <service_bundle type="manifest" name="export">
   <service name="pkgsrc/proxysql" type="service" version="1">
     <create_default_instance enabled="false" />
-    <single_instance />
+
     <dependency name="network" grouping="require_all" restart_on="none" type="service">
       <service_fmri value="svc:/milestone/network:default" />
     </dependency>
+    
     <dependency name="filesystem-local" grouping="require_all" restart_on="none" type="service">
       <service_fmri value="svc:/system/filesystem/local:default" />
     </dependency>
-    <method_context>
-      <method_environment>
-        <envvar name="PATH" value="/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"/>
-      </method_environment>
-    </method_context>
     
     <method_context>
       <method_credential user="proxysql" group="proxysql"/>
@@ -23,6 +19,13 @@
     <exec_method type="method" name="start" exec="/opt/local/bin/proxysql -c /opt/local/etc/proxysql.cnf" timeout_seconds="300" />
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60"/>
     <exec_method type="method" name="refresh" exec="/opt/local/bin/proxysql --reload" timeout_seconds="60"/>
+    
+    <method_context>
+      <method_environment>
+        <envvar name="PATH" value="/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"/>
+      </method_environment>
+    </method_context>
+    
     <template>
       <common_name>
         <loctext xml:lang="C">High-performance MySQL proxy</loctext>
@@ -31,5 +34,6 @@
         <doc_link name="proxysql.com" uri="https://proxysql.com/" />
       </documentation>
     </template>
+    
   </service>
 </service_bundle>
