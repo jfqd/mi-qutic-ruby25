@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if mdata-get server_name 1>/dev/null 2>&1; then
   SERVER_NAME=`mdata-get server_name`
   sed -i "s:SERVER_NAME:$SERVER_NAME:g" /opt/local/etc/httpd/vhosts/01-ruby.conf

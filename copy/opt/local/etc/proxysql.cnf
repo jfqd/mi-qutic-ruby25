@@ -85,10 +85,10 @@ mysql_servers =
 # MySQL users will we be added by script
 mysql_users:
 (
-#	{
-#		username = "db-username"
-#		password = "db-password"
-#		default_hostgroup = 0
-#		active = 1
-#	}
+	{
+		username = "db-username"
+		password = "db-password"
+		default_hostgroup = 0
+		active = 1
+	}
 )
