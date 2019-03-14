@@ -32,6 +32,7 @@
     "passenger_workers":               {"type": "text", "description": "num of waiting passenger workers"},
     "proxysql_admin_uid":              {"type": "text", "description": "proxysql admin user"},
     "proxysql_admin_pwd":              {"type": "text", "description": "proxysql admin password"},
+    "proxysql_monitor_pwd":            {"type": "text", "description": "proxysql monitor password"},
     "spiped_key":                      {"type": "text", "description": "key for spiped"},
     "spiped_redis_host":               {"type": "text", "description": "redis host for spiped"},
     "spiped_redis_fallback_host":      {"type": "text", "description": "redis fallback host for spiped"},

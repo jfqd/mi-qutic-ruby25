@@ -1,3 +1,8 @@
+if mdata-get proxysql_monitor_pwd 1>/dev/null 2>&1; then
+  MONITOR_PWD=`mdata-get proxysql_monitor_pwd`
+  sed -i "s#monitor_password=\"monitor\"#monitor_password=\"${MONITOR_PWD}\"#" /opt/local/etc/proxysql.cnf
+fi
+
 if mdata-get proxysql_admin_uid 1>/dev/null 2>&1; then
   if mdata-get proxysql_admin_pwd 1>/dev/null 2>&1; then
     PROXY_UID=`mdata-get proxysql_admin_uid`
