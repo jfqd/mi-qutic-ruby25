@@ -16,7 +16,7 @@
       <method_credential user="proxysql" group="proxysql"/>
     </method_context>
     
-    <exec_method type="method" name="start" exec="/opt/local/bin/proxysql -c /opt/local/etc/proxysql.cnf" timeout_seconds="300" />
+    <exec_method type="method" name="start" exec="/opt/qutic/bin/proxysql -c /opt/local/etc/proxysql.cnf" timeout_seconds="300" />
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60"/>
     <exec_method type="method" name="refresh" exec="/opt/local/bin/proxysql --reload" timeout_seconds="60"/>
     
