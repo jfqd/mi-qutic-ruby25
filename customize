@@ -84,9 +84,6 @@ mkdir -p /var/log/httpd/old
 mkdir /opt/local/etc/httpd/tls
 chmod 0600 /opt/local/etc/httpd/tls
 
-chmod 0640 /opt/qutic/mysql-proxy/etc/my.cnf
-svccfg import /opt/qutic/mysql-proxy/share/mysql-proxy.xml
-
 echo "export PASSENGER_INSTANCE_REGISTRY_DIR=/var/tmp" >> /root/.bashrc
 
 # ruby process watch
