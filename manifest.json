@@ -1,6 +1,6 @@
 {
   "name":         "qutic-ruby25",
-  "version":      "20181018.1",
+  "version":      "20181018.2",
   "description":  "qutic ruby 2.5 image",
   "organization": "qutic development",
   "brand":        "Ruby 2.5 Instance",
