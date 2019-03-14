@@ -68,7 +68,7 @@ chmod +x /home/ruby/www/shared/gems/bin/ruby
 rm -rf /var/zoneinit/tmp
 chown -R ruby:ruby /home/ruby/www
 
-echo "* setup spiped"
+echo "* Setup spiped"
 groupadd -g 120 spiped
 useradd -m -s /usr/bin/false -d /nonexistent -u 120 -g spiped spiped
 dd if=/dev/urandom bs=32 count=1 2>/dev/null | shasum -a 512 | awk '{print $1}' | tr -d '\n' > /etc/ssh/spiped.key
@@ -84,8 +84,12 @@ mkdir -p /var/log/httpd/old
 mkdir /opt/local/etc/httpd/tls
 chmod 0600 /opt/local/etc/httpd/tls
 
-echo "* Add db folder for proxysql";
+echo "* Setup proxysql";
 mkdir -p /opt/local/var/proxysql
+groupadd -g 130 proxysql
+useradd -m -s /usr/bin/false -d /nonexistent -u 130 -g proxysql proxysql
+chmod 0640 /opt/local/etc/proxysql.cnf
+chown root:proxysql /opt/local/etc/proxysql.cnf
 svccfg import /opt/local/lib/svc/manifest/proxysql.xml
 
 echo "export PASSENGER_INSTANCE_REGISTRY_DIR=/var/tmp" >> /root/.bashrc
