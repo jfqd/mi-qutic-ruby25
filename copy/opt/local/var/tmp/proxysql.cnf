@@ -67,7 +67,7 @@ mysql_servers =
 		status = "ONLINE"
 		weight = 100000
 		compression = 0
-		max_replication_lag = 10
+		max_replication_lag = 0
 		max_connections = 1000
 	},
 	{
@@ -77,7 +77,7 @@ mysql_servers =
 		status = "ONLINE"
 		weight = 1
 		compression = 0
-		max_replication_lag = 10
+		max_replication_lag = 0
 		max_connections = 1000
 	}
 )
