@@ -28,7 +28,7 @@ datadir="/opt/local/var/proxysql"
 admin_variables=
 {
 	admin_credentials="admin:admin"
-	mysql_ifaces="0.0.0.0:3307"
+	mysql_ifaces="127.0.0.1:3307"
 }
 
 mysql_variables=
