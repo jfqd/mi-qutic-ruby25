@@ -30,3 +30,13 @@ if mdata-get proxysql_database_pwd 1>/dev/null 2>&1; then
 fi
 
 svcadm enable svc:/pkgsrc/proxysql:default
+
+cat >> /root/.mysql_history << EOF
+UPDATE mysql_servers SET status='OFFLINE_HARD' WHERE port='13306';
+UPDATE mysql_servers SET status='ONLINE' WHERE port='13306';
+LOAD MYSQL SERVERS TO RUNTIME;
+SAVE MYSQL SERVERS TO DISK;
+SELECT * FROM mysql_servers;
+SELECT * FROM stats.stats_mysql_connection_pool;
+EOF
+chmod 0600 /root/.mysql_history
