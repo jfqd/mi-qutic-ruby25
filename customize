@@ -78,8 +78,9 @@ svccfg delete svc:/pkgsrc/spiped:default
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
 mkdir -p /var/log/httpd/old
-mkdir /opt/local/etc/httpd/tls
-chmod 0600 /opt/local/etc/httpd/tls
+mkdir -p /opt/local/etc/httpd/ssl || true
+chmod 0640 /opt/local/etc/httpd/ssl
+ln -nfs /opt/local/etc/httpd/ssl /opt/local/etc/httpd/tls
 
 echo "* Setup proxysql";
 pkg_add https://download.qutic.com/extras/proxysql-1.4.7.tgz || true
