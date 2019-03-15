@@ -62,10 +62,9 @@ mkdir -p /home/ruby/www/shared/system
 cd /home/ruby/www/shared
 /opt/local/bin/gemenv gems
 
-mv /var/tmp/activate /home/ruby/www/shared/gems/bin/activate
-mv /var/tmp/ruby /home/ruby/www/shared/gems/bin/ruby
+mv /opt/local/var/tmp/activate /home/ruby/www/shared/gems/bin/activate
+mv /opt/local/var/tmp/ruby /home/ruby/www/shared/gems/bin/ruby
 chmod +x /home/ruby/www/shared/gems/bin/ruby
-rm -rf /var/tmp
 chown -R ruby:ruby /home/ruby/www
 
 echo "* Setup spiped"
@@ -89,10 +88,10 @@ groupadd -g 130 proxysql
 useradd -m -s /usr/bin/false -d /opt/local/var/proxysql -u 130 -g proxysql proxysql
 chown proxysql:proxysql /opt/local/var/proxysql/
 mv /opt/local/etc/proxysql.cnf /opt/local/etc/proxysql.cnf.bak || true
-mv /var/tmp/proxysql.cnf /opt/local/etc/proxysql.cnf
+mv /opt/local/var/tmp/proxysql.cnf /opt/local/etc/proxysql.cnf
 chmod 0640 /opt/local/etc/proxysql.cnf
 chown root:proxysql /opt/local/etc/proxysql.cnf
-mv /var/tmp/proxysql.xml /opt/local/lib/svc/manifest/proxysql.xml
+mv /opt/local/var/tmp/proxysql.xml /opt/local/lib/svc/manifest/proxysql.xml
 svccfg import /opt/local/lib/svc/manifest/proxysql.xml
 
 echo "* Fix passenger";
@@ -107,8 +106,9 @@ svccfg import /opt/qutic/lib/svc/manifest/rbpswatch.xml
 # Clean up
 echo "* Cleaning up."
 #pkgin -y remove gmake
-#pkgin -y remove gcc49
+#pkgin -y remove gcc7
 rm /root/customize
+rm -rf /opt/local/var/tmp
 
 # Prepare image for provisioning
 sm-prepare-image -y
