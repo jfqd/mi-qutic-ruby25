@@ -93,6 +93,7 @@ chmod 0640 /opt/local/etc/proxysql.cnf
 chown root:proxysql /opt/local/etc/proxysql.cnf
 mv /opt/local/var/tmp/proxysql.xml /opt/local/lib/svc/manifest/proxysql.xml
 svccfg import /opt/local/lib/svc/manifest/proxysql.xml
+ln -nfs /var/svc/log/pkgsrc-proxysql:default.log /var/log/proxysql.log
 
 echo "* Fix passenger";
 echo "export PASSENGER_INSTANCE_REGISTRY_DIR=/var/tmp" >> /root/.bashrc
