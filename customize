@@ -90,6 +90,7 @@ groupadd -g 130 proxysql
 useradd -m -s /usr/bin/false -d /nonexistent -u 130 -g proxysql proxysql
 chmod 0640 /opt/local/etc/proxysql.cnf
 chown root:proxysql /opt/local/etc/proxysql.cnf
+chown proxysql:proxysql /opt/local/var/proxysql/
 svccfg import /opt/local/lib/svc/manifest/proxysql.xml
 
 echo "export PASSENGER_INSTANCE_REGISTRY_DIR=/var/tmp" >> /root/.bashrc
