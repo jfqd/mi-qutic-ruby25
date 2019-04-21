@@ -36,6 +36,10 @@ for CONF_RM in ${HTTPD_CONF_RM}; do
   rm -f /opt/local/etc/httpd/${CONF_RM}
 done
 
+echo "* Get latest updates"
+pkgin update
+pkgin -y upgrade || true
+
 echo "* Setup ruby env"
 
 echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
