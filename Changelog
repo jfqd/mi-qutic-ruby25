@@ -1,5 +1,12 @@
 # Changelog
 
+## 20181018.3
+
+* fix nrpe ssl access
+* get latest versions from pkgsrc
+* skip spiped for percona
+* use proxysql
+
 ## 20181018.2
 
 * remove mysql-proxy

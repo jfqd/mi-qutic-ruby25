@@ -19,21 +19,31 @@ EOF
 chmod 0400 /root/.my.cnf
 fi
 
-if mdata-get proxysql_database_user 1>/dev/null 2>&1; then
-  PROXY_DB_USER=`mdata-get proxysql_database_user`
+if mdata-get percona_host 1>/dev/null 2>&1; then
+  PERCONA_HOST=`mdata-get percona_host`
+  sed -i "s/main.example.com/${PERCONA_HOST}/g" /opt/local/etc/proxysql.cnf
+fi
+
+if mdata-get percona_fallback 1>/dev/null 2>&1; then
+  PERCONA_FALLBACK=`mdata-get percona_fallback`
+  sed -i "s/backup.example.com/${PERCONA_FALLBACK}/g" /opt/local/etc/proxysql.cnf
+fi
+
+if mdata-get postfix_mysqluser 1>/dev/null 2>&1; then
+  PROXY_DB_USER=`mdata-get postfix_mysqluser`
   sed -i "s#db-username#${PROXY_DB_USER}#" /opt/local/etc/proxysql.cnf
 fi
 
-if mdata-get proxysql_database_pwd 1>/dev/null 2>&1; then
-  PROXY_DB_PWD=`mdata-get proxysql_database_pwd`
-  sed -i "s#db-password#${PROXY_DB_PWD}#" /opt/local/etc/proxysql.cnf
+if mdata-get postfix_mysqlpassword 1>/dev/null 2>&1; then
+  PROXY_DB_PWD=`mdata-get postfix_mysqlpassword`
+  sed -i "s#db-password#${PROXY_DB_PWD}#g" /opt/local/etc/proxysql.cnf
 fi
 
 svcadm enable svc:/pkgsrc/proxysql:default
 
 cat >> /root/.mysql_history << EOF
-UPDATE mysql_servers SET status='OFFLINE_HARD' WHERE port='13306';
-UPDATE mysql_servers SET status='ONLINE' WHERE port='13306';
+UPDATE mysql_servers SET status='OFFLINE_HARD' WHERE weight='100000';
+UPDATE mysql_servers SET status='ONLINE' WHERE weight='100000';
 LOAD MYSQL SERVERS TO RUNTIME;
 SAVE MYSQL SERVERS TO DISK;
 SELECT * FROM mysql_servers;
