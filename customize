@@ -38,7 +38,7 @@ done
 
 echo "* Setup ruby env"
 
-echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
+echo "gem: --no-document " >> /opt/local/etc/gemrc
 gem update --system
 gem install bundler
 gem install gemenv
