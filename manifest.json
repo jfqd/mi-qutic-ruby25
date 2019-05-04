@@ -37,8 +37,8 @@
     "spiped_key":                      {"type": "text", "description": "key for spiped"},
     "spiped_redis_host":               {"type": "text", "description": "redis host for spiped"},
     "spiped_redis_fallback_host":      {"type": "text", "description": "redis fallback host for spiped"},
-    "percona_host":                    {"type": "text", "description": "percona host for spiped"},
-    "percona_fallback_host":           {"type": "text", "description": "percona fallback host for spiped"},
+    "percona_host":                    {"type": "text", "description": "percona host for proxysql"},
+    "percona_fallback_host":           {"type": "text", "description": "percona fallback host for proxysql"},
     "spiped_memcached_master_host":    {"type": "text", "description": "memcached master host for spiped"},
     "spiped_memcached_fallback_host":  {"type": "text", "description": "memcached fallback host for spiped"}
   }
