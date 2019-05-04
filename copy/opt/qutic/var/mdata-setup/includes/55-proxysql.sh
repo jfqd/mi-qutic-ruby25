@@ -24,18 +24,18 @@ if mdata-get percona_host 1>/dev/null 2>&1; then
   sed -i "s/main.example.com/${PERCONA_HOST}/g" /opt/local/etc/proxysql.cnf
 fi
 
-if mdata-get percona_fallback 1>/dev/null 2>&1; then
-  PERCONA_FALLBACK=`mdata-get percona_fallback`
+if mdata-get percona_fallback_host 1>/dev/null 2>&1; then
+  PERCONA_FALLBACK=`mdata-get percona_fallback_host`
   sed -i "s/backup.example.com/${PERCONA_FALLBACK}/g" /opt/local/etc/proxysql.cnf
 fi
 
-if mdata-get postfix_mysqluser 1>/dev/null 2>&1; then
-  PROXY_DB_USER=`mdata-get postfix_mysqluser`
+if mdata-get proxysql_database_user 1>/dev/null 2>&1; then
+  PROXY_DB_USER=`mdata-get proxysql_database_user`
   sed -i "s#db-username#${PROXY_DB_USER}#" /opt/local/etc/proxysql.cnf
 fi
 
-if mdata-get postfix_mysqlpassword 1>/dev/null 2>&1; then
-  PROXY_DB_PWD=`mdata-get postfix_mysqlpassword`
+if mdata-get proxysql_database_pwd 1>/dev/null 2>&1; then
+  PROXY_DB_PWD=`mdata-get proxysql_database_pwd`
   sed -i "s#db-password#${PROXY_DB_PWD}#g" /opt/local/etc/proxysql.cnf
 fi
 
