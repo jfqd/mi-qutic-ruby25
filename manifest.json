@@ -1,11 +1,11 @@
 {
   "name":         "qutic-ruby25",
-  "version":      "20181018.3",
+  "version":      "20181018.4",
   "description":  "qutic ruby 2.5 image",
   "organization": "qutic development",
   "brand":        "Ruby 2.5 Instance",
   "homepage":     "https://github.com/jfqd/mi-qutic-ruby25",
-  "base":         "703a9bca-4703-11e9-926d-c723ee384af0",
+  "base":         "80eb3464-7ec3-11e9-8365-c32736cdd54f",
   "customer_metadata": {
     "admin_authorized_keys":           {"type": "text", "description": "SSH public authorized key(s) for the admin user"},
     "ruby_authorized_keys":            {"type": "text", "description": "SSH public authorized key(s) for the ruby user"},

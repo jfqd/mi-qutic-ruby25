@@ -1,5 +1,12 @@
 # Changelog
 
+## 20181018.4
+
+* use latest qutic-base image
+* fix proxysql.cnf mdata setup
+* remove build script for sphinx
+* fix percona mdata names
+
 ## 20181018.3
 
 * fix nrpe ssl access
