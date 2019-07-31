@@ -14,6 +14,7 @@ MUNIN_PLUGINS="
 	passenger_memory
 	ps_httpd
 	ps_delayed_job
+	dj_queue
 "
 
 echo "* Activate munin plugins"
@@ -104,6 +105,14 @@ ln -nfs /opt/local/lib/ruby/vendor_ruby/2.5.0 /opt/local/lib/ruby/vendor_ruby/2.
 echo "* Import ruby process watcher";
 svccfg import /opt/qutic/lib/svc/manifest/rbpswatch.xml
 # svcadm enable rbpswatch
+
+echo "* Add plugin config";
+cat >> /opt/local/etc/munin/plugin-conf.d/dj_queue << EOF
+[dj_queue]
+env.PATH /usr/local/sbin:/usr/local/bin:/opt/local/sbin:/opt/local/bin:/usr/sbin:/usr/bin:/sbin
+user ruby
+EOF
+
 
 # Clean up
 echo "* Cleaning up."
