@@ -13,4 +13,12 @@ gsed -i \
      -e "s/bind 127.0.0.1/bind ${IP_INTERNAL}/" \
      /opt/local/etc/redis.conf
 
+cat >> /opt/local/etc/redis.conf << EOF
+# prevent usage of these commands for security reasons
+rename-command FLUSHALL ""
+rename-command FLUSHDB ""
+rename-command CONFIG ""
+rename-command SWAPDB ""
+EOF
+
 touch /var/log/redis/redis.log
