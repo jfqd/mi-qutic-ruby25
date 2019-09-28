@@ -1,7 +1,7 @@
 name="qutic-ruby25"
 organization="qutic development"
 brand="Ruby 2.5 Instance"
-version="20181018.4"
+version="20181018.6"
 description="qutic ruby 2.5 image"
 homepage="https://github.com/jfqd/mi-qutic-ruby25"
 users="root admin ruby"

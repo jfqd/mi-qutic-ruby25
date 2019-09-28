@@ -1,5 +1,11 @@
 # Changelog
 
+## 20181018.6
+
+* build on latest base image
+* prevent usage of these commands for security reasons
+* extend health-check
+
 ## 20181018.5
 
 * link dj_queue
