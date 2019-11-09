@@ -54,6 +54,10 @@ passwd -d ruby
 cat >> /home/ruby/.bashrc << EOF
 source /home/ruby/www/shared/gems/bin/activate
 EOF
+cat >> /home/ruby/.bash_history << EOF
+#`date +'%s'`
+cd /home/ruby/www/current
+EOF
 
 mkdir -p /home/ruby/www/releases
 mkdir -p /home/ruby/www/shared/config
