@@ -18,5 +18,9 @@ if [[ ! -f /opt/local/pkg/pkg-vulnerabilities ]]; then
   /opt/local/sbin/pkg_admin fetch-pkg-vulnerabilities
 fi
 
+# fix pkgin issues
+sed -i "s#/var/log/httpd/access-.*##" /etc/logadm.conf
+svcadm restart nullmailer
+
 # bye
 exit 0

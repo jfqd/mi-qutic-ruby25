@@ -10,7 +10,7 @@ if mdata-get proxysql_admin_pwd 1>/dev/null 2>&1; then
   sed -i "s#admin_credentials=\"admin:admin\"#admin_credentials=\"admin:${PROXY_ADMIN_PWD}\"#" /opt/local/etc/proxysql.cnf
   cat >> /root/.my.cnf << EOF
 [client]
-host = localhost
+host = 127.0.0.1
 port = 3307
 user = admin
 password = ${PROXY_ADMIN_PWD}
