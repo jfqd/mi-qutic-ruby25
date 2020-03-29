@@ -8,6 +8,7 @@ fi
 if mdata-get proxysql_admin_pwd 1>/dev/null 2>&1; then
   PROXY_ADMIN_PWD=`mdata-get proxysql_admin_pwd`
   sed -i "s#admin_credentials=\"admin:admin\"#admin_credentials=\"admin:${PROXY_ADMIN_PWD}\"#" /opt/local/etc/proxysql.cnf
+
   cat >> /root/.my.cnf << EOF
 [client]
 host = 127.0.0.1
@@ -16,7 +17,11 @@ user = admin
 password = ${PROXY_ADMIN_PWD}
 prompt = 'Admin> '
 EOF
-chmod 0400 /root/.my.cnf
+
+  chmod 0400 /root/.my.cnf
+  sed -i "s#proxysql_password = \"root\"#proxysql_password = \"${PROXY_ADMIN_PWD}\"#" /opt/local/bin/zabbix_proxysql
+  chown root:zabbix /opt/local/bin/zabbix_proxysql
+  chmod 0751 /opt/local/bin/zabbix_proxysql
 fi
 
 if mdata-get percona_host 1>/dev/null 2>&1; then
