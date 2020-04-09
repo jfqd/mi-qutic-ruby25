@@ -25,5 +25,5 @@ jemalloc
 # zabbix proxysql
 py37-pip
 py37-pymysql
-py37-more-itertool
+py37-more-itertools
 py37-simplejson
