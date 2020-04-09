@@ -1,5 +1,9 @@
 # Changelog
 
+## 20181018.7
+
+* include zabbix config
+
 ## 20181018.6
 
 * build on latest base image
