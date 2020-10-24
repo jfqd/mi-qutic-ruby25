@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+# sleep random time to prevent that all cron
+# scripts are starting at the same time!
+sleep $((RANDOM % 30))
+
 ZABBIX_CONF=/opt/local/etc/zabbix_agentd.conf
 
 function zsend {
